@@ -86,7 +86,7 @@ class VBakulkuMainMobile extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () {},
-                    child: Container(
+                    child: SizedBox(
                       height: 80,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -102,7 +102,7 @@ class VBakulkuMainMobile extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () {},
-                    child: Container(
+                    child: SizedBox(
                       height: 80,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -118,7 +118,7 @@ class VBakulkuMainMobile extends StatelessWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () {},
-                    child: Container(
+                    child: SizedBox(
                       height: 80,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
