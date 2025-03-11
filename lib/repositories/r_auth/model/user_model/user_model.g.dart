@@ -41,5 +41,5 @@ Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
 const _$ERoleEnumMap = {
   ERole.admin: 'admin',
   ERole.seller: 'seller',
-  ERole.user: 'user',
+  ERole.pelanggan: 'pelanggan',
 };

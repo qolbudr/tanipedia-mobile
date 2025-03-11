@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tanipedia_mobile/core/database/db.dart';
+import 'package:tanipedia_mobile/core/enums/role.dart';
 import 'package:tanipedia_mobile/core/errors/error_handler.dart';
+import 'package:tanipedia_mobile/core/errors/failure.dart';
 import 'package:tanipedia_mobile/core/models/status.dart';
 import 'package:tanipedia_mobile/core/widget/w_snackbar.dart';
 import 'package:tanipedia_mobile/feature/auth/controller/c_login/c_login_state.dart';
@@ -16,6 +19,7 @@ class CLogin extends GetxController {
 
   final rAuth = Get.find<RIAuth>();
   final oMain = Get.find<CMain>();
+  final db = Get.find<DatabaseHelper>();
 
   final formKey = GlobalKey<FormState>();
   final emailText = TextEditingController();
@@ -26,7 +30,10 @@ class CLogin extends GetxController {
       if (formKey.currentState?.validate() == true) {
         _state.value = state.copyWith(status: const Status.loading());
         final response = await rAuth.login(email: emailText.text, password: passwordText.text);
+        if(response.data?.role != ERole.pelanggan) throw const ClientFailure(message: "Email/password salah");
         oMain.setUserData(response.data, response.token);
+        if(response.token != null) await db.storeToken(response.token!);
+        if(response.data != null) await db.storeUser(response.data!);
         MainRoute.toMain();
         _state.value = state.copyWith(status: const Status.success());
       }

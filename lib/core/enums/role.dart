@@ -1,5 +1,5 @@
 enum ERole {
   admin,
   seller,
-  user,
+  pelanggan,
 }

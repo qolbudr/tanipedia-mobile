@@ -67,18 +67,39 @@ class IApi implements Api {
 
       url = "${Const.baseUrl}$url";
 
-      if (data != null) data.removeWhere((key, value) => value == null);
+      FormData? formData;
+      bool containFile = false;
+
+      if (data != null) {
+        data.removeWhere((key, value) => value == null);
+        data.forEach((key, value) {
+          if (value is XFile) {
+            containFile = true;
+          }
+        });
+
+        if (containFile) {
+          final dataWithForm = FormData.fromMap(data.map((key, value) {
+            if (value is XFile) {
+              return MapEntry(key, MultipartFile.fromFileSync(value.path));
+            }
+            return MapEntry(key, value);
+          }));
+
+          formData = dataWithForm;
+        }
+      }
 
       final response = await dio.request(
         url,
-        data: data,
+        data: containFile ? formData : data,
         options: Options(method: method.toString().split('.').last),
       );
 
       final logMessage = [
         '[ApiReq : URL  ] : ${response.requestOptions.method} ${response.statusCode} $url',
         '[ApiReq : Head ] : ${jsonEncode(response.requestOptions.headers)}',
-        '[ApiReq : Data ] : ${jsonEncode(data)}',
+        if (!containFile) '[ApiReq : Data ] : ${jsonEncode(data)}',
         '[ApiReq : Res  ] : ${jsonEncode(response.data)}',
       ];
 
