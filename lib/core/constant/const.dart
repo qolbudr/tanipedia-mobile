@@ -21,6 +21,7 @@ class Const {
   static String oneSignalAppId = '2ff1a83f-5ef0-45c7-bbef-e0f3724ae38e';
   static String wsUrl = 'wss://admin.jobdis.site';
   static String baseUrl = 'http://10.0.2.2:3030/api';
+  static String urlHost = 'http://10.0.2.2:3030';
   // static String wsUrl = 'ws://10.0.2.2:3000';
   // static String baseUrl = 'http://10.0.2.2:3000/api';
 }

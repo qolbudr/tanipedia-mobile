@@ -39,7 +39,7 @@ class VBakulkuMainMobile extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(100),
                       child: CachedNetworkImage(
-                        imageUrl: "https://picsum.photos/200/300",
+                        imageUrl: "${Const.urlHost}/avatar/${oMain.state.user?.photo}",
                         width: 40,
                         height: 40,
                         fit: BoxFit.cover,
