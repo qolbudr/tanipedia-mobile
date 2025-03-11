@@ -150,7 +150,7 @@ class IApi implements Api {
       dio.interceptors.add(tokenInterceptor);
 
       if (query != null) {
-        query.removeWhere((key, value) => value == null);
+        query.removeWhere((key, value) => value == null || ((value is String) && (value).isEmpty));
 
         if (url.substring(0, url.length) == '/') url = url.substring(0, url.length - 1);
 
