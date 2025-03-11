@@ -4,13 +4,14 @@ import 'package:tanipedia_mobile/core/constant/const.dart';
 import 'package:tanipedia_mobile/core/themes/color_theme.dart';
 import 'package:tanipedia_mobile/core/themes/text_theme.dart';
 import 'package:tanipedia_mobile/core/widget/w_button.dart';
-import 'package:tanipedia_mobile/feature/main/main_route.dart';
+import 'package:tanipedia_mobile/feature/main/controller/c_splash_screen/c_splash_screen.dart';
 
 class VSplashScreenMobile extends StatelessWidget {
   const VSplashScreenMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Get.put(CSplashScreen());
     return Scaffold(
       backgroundColor: TColors.green50,
       body: SizedBox(
@@ -36,7 +37,7 @@ class VSplashScreenMobile extends StatelessWidget {
                   SizedBox(height: Const.siblingMargin(x: 4)),
                   WButton(
                     type: WButtonType.whiteGhost,
-                    onTap: () => MainRoute.toOnBoarding(),
+                    onTap: () {},
                     label: "Get Started",
                     fullWidth: true,
                   )
