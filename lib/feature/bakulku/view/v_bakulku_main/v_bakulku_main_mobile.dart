@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tanipedia_mobile/core/constant/const.dart';
 import 'package:tanipedia_mobile/core/themes/color_theme.dart';
 import 'package:tanipedia_mobile/core/themes/text_theme.dart';
 import 'package:tanipedia_mobile/core/widget/w_input.dart';
+import 'package:tanipedia_mobile/feature/main/controller/c_main/c_main.dart';
 import 'package:tanipedia_mobile/gen/assets.gen.dart';
 
 class VBakulkuMainMobile extends StatelessWidget {
@@ -11,6 +13,8 @@ class VBakulkuMainMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final oMain = Get.put(CMain());
+
     return Scaffold(
       body: Column(
         children: [
@@ -42,7 +46,7 @@ class VBakulkuMainMobile extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: Const.siblingMargin(x: 2)),
-                    Text("Halo, Riski", style: TText.bodySemiBold(color: TColors.baseWhite)),
+                    Text("Halo, ${oMain.state.user?.name}", style: TText.bodySemiBold(color: TColors.baseWhite)),
                     SizedBox(height: Const.siblingMargin(x: 2)),
                     Text("Temukan hasil pertanian", style: TText.heading2Bold()),
                     SizedBox(height: Const.siblingMargin(x: 8)),

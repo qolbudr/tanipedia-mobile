@@ -17,6 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CMainState {
   int get tabIndex => throw _privateConstructorUsedError;
+  UserModel? get user => throw _privateConstructorUsedError;
+  String? get token => throw _privateConstructorUsedError;
 
   /// Create a copy of CMainState
   /// with the given fields replaced by the non-null parameter values.
@@ -31,7 +33,9 @@ abstract class $CMainStateCopyWith<$Res> {
           CMainState value, $Res Function(CMainState) then) =
       _$CMainStateCopyWithImpl<$Res, CMainState>;
   @useResult
-  $Res call({int tabIndex});
+  $Res call({int tabIndex, UserModel? user, String? token});
+
+  $UserModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -50,13 +54,37 @@ class _$CMainStateCopyWithImpl<$Res, $Val extends CMainState>
   @override
   $Res call({
     Object? tabIndex = null,
+    Object? user = freezed,
+    Object? token = freezed,
   }) {
     return _then(_value.copyWith(
       tabIndex: null == tabIndex
           ? _value.tabIndex
           : tabIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
+  }
+
+  /// Create a copy of CMainState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserModelCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
   }
 }
 
@@ -68,7 +96,10 @@ abstract class _$$CMainStateImplCopyWith<$Res>
       __$$CMainStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int tabIndex});
+  $Res call({int tabIndex, UserModel? user, String? token});
+
+  @override
+  $UserModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -85,12 +116,22 @@ class __$$CMainStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tabIndex = null,
+    Object? user = freezed,
+    Object? token = freezed,
   }) {
     return _then(_$CMainStateImpl(
       tabIndex: null == tabIndex
           ? _value.tabIndex
           : tabIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -98,15 +139,19 @@ class __$$CMainStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CMainStateImpl implements _CMainState {
-  const _$CMainStateImpl({this.tabIndex = 0});
+  const _$CMainStateImpl({this.tabIndex = 0, this.user, this.token});
 
   @override
   @JsonKey()
   final int tabIndex;
+  @override
+  final UserModel? user;
+  @override
+  final String? token;
 
   @override
   String toString() {
-    return 'CMainState(tabIndex: $tabIndex)';
+    return 'CMainState(tabIndex: $tabIndex, user: $user, token: $token)';
   }
 
   @override
@@ -115,11 +160,13 @@ class _$CMainStateImpl implements _CMainState {
         (other.runtimeType == runtimeType &&
             other is _$CMainStateImpl &&
             (identical(other.tabIndex, tabIndex) ||
-                other.tabIndex == tabIndex));
+                other.tabIndex == tabIndex) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.token, token) || other.token == token));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, tabIndex);
+  int get hashCode => Object.hash(runtimeType, tabIndex, user, token);
 
   /// Create a copy of CMainState
   /// with the given fields replaced by the non-null parameter values.
@@ -131,10 +178,17 @@ class _$CMainStateImpl implements _CMainState {
 }
 
 abstract class _CMainState implements CMainState {
-  const factory _CMainState({final int tabIndex}) = _$CMainStateImpl;
+  const factory _CMainState(
+      {final int tabIndex,
+      final UserModel? user,
+      final String? token}) = _$CMainStateImpl;
 
   @override
   int get tabIndex;
+  @override
+  UserModel? get user;
+  @override
+  String? get token;
 
   /// Create a copy of CMainState
   /// with the given fields replaced by the non-null parameter values.

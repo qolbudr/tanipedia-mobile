@@ -1,6 +1,5 @@
 enum ERole {
-  user,
   admin,
-  consultant,
-  company,
+  seller,
+  user,
 }

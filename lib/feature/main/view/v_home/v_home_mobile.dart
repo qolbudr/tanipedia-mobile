@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tanipedia_mobile/core/constant/const.dart';
 import 'package:tanipedia_mobile/core/themes/color_theme.dart';
 import 'package:tanipedia_mobile/core/themes/text_theme.dart';
@@ -20,7 +19,6 @@ class VHomeMobile extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                height: Get.height * 0.5,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.vertical(bottom: Radius.circular(80)),
                   gradient: LinearGradient(
@@ -67,7 +65,8 @@ class VHomeMobile extends StatelessWidget {
                             )
                           ],
                         ),
-                      )
+                      ),
+                      const SizedBox(height: 90),
                     ],
                   ),
                 ),
