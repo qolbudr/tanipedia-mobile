@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:tanipedia_mobile/feature/auth/auth_route.dart';
+import 'package:tanipedia_mobile/feature/bakulku/bakulku_route.dart';
 import 'package:tanipedia_mobile/feature/main/main_route.dart';
 // import 'package:tanipedia_mobile/feature/auth/auth_route.dart';
 // import 'package:tanipedia_mobile/feature/consultation/consultation_route.dart';
@@ -12,7 +13,7 @@ class BaseRoute {
   static List<GetPage> route = [
     ...MainRoute.routes,
     ...AuthRoute.routes,
-    // ...JobRoute.routes,
+    ...BakulkuRoute.routes,
     // ...ConsultationRoute.routes,
     // ...SettingRoute.routes,
     // ...MappingRoute.routes,

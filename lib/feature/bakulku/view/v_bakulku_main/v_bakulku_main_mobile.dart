@@ -7,6 +7,7 @@ import 'package:tanipedia_mobile/core/themes/color_theme.dart';
 import 'package:tanipedia_mobile/core/themes/text_theme.dart';
 import 'package:tanipedia_mobile/core/widget/w_input.dart';
 import 'package:tanipedia_mobile/core/widget/w_refresher.dart';
+import 'package:tanipedia_mobile/feature/bakulku/bakulku_route.dart';
 import 'package:tanipedia_mobile/feature/bakulku/controller/c_bakulku_main/c_bakulku_main.dart';
 import 'package:tanipedia_mobile/feature/main/controller/c_main/c_main.dart';
 import 'package:tanipedia_mobile/gen/assets.gen.dart';
@@ -168,55 +169,58 @@ class VBakulkuMainMobile extends StatelessWidget {
                   shrinkWrap: true,
                   children: [
                     ...o.state.data.map(
-                      (item) => Column(
-                        children: [
-                          Expanded(
-                            child: SizedBox(
-                              width: double.infinity,
-                              child: ClipRRect(
-                                borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
-                                child: CachedNetworkImage(
-                                  imageUrl: "${Const.urlHost}/product/${item.image}",
-                                  fit: BoxFit.cover,
+                      (item) => InkWell(
+                        onTap: () => BakulkuRoute.toDetail(id: item.id ?? 0),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: ClipRRect(
+                                  borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+                                  child: CachedNetworkImage(
+                                    imageUrl: "${Const.urlHost}/product/${item.image}",
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.all(Const.parentMargin()),
-                            width: double.infinity,
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)),
-                              color: Colors.white,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(item.name ?? '-', style: TText.bodyMBold()),
-                                Row(
-                                  children: [
-                                    const Icon(Icons.map_outlined, size: 14),
-                                    SizedBox(width: Const.siblingMargin()),
-                                    Expanded(
-                                      child: Text(
-                                        item.seller?.address ?? '-',
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TText.bodyXSRegular(),
+                            Container(
+                              padding: EdgeInsets.all(Const.parentMargin()),
+                              width: double.infinity,
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)),
+                                color: Colors.white,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(item.name ?? '-', style: TText.bodyMBold()),
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.map_outlined, size: 14),
+                                      SizedBox(width: Const.siblingMargin()),
+                                      Expanded(
+                                        child: Text(
+                                          item.seller?.address ?? '-',
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TText.bodyXSRegular(),
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  item.description ?? '-',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TText.bodyXSRegular(color: TColors.primaryColor),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
+                                    ],
+                                  ),
+                                  Text(
+                                    item.description ?? '-',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TText.bodyXSRegular(color: TColors.primaryColor),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ],
