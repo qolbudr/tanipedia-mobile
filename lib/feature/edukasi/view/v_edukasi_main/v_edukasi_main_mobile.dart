@@ -4,6 +4,7 @@ import 'package:tanipedia_mobile/core/constant/const.dart';
 import 'package:tanipedia_mobile/core/themes/color_theme.dart';
 import 'package:tanipedia_mobile/core/themes/text_theme.dart';
 import 'package:tanipedia_mobile/core/widget/w_button.dart';
+import 'package:tanipedia_mobile/feature/edukasi/edukasi_route.dart';
 import 'package:tanipedia_mobile/gen/assets.gen.dart';
 
 class VEdukasiMainMobile extends StatelessWidget {
@@ -35,7 +36,7 @@ class VEdukasiMainMobile extends StatelessWidget {
                 SizedBox(height: Const.siblingMargin(x: 10)),
                 WButton(
                   type: WButtonType.whiteGhost,
-                  onTap: () {},
+                  onTap: () => EdukasiRoute.toVideo(),
                   fullWidth: true,
                   label: "Video Pembelajaran",
                 ),

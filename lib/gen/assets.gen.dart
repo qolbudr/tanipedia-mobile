@@ -40,6 +40,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/google.png
   AssetGenImage get google => const AssetGenImage('assets/images/google.png');
 
+  /// File path: assets/images/header-img.png
+  AssetGenImage get headerImg =>
+      const AssetGenImage('assets/images/header-img.png');
+
   /// File path: assets/images/home-nav.png
   AssetGenImage get homeNav =>
       const AssetGenImage('assets/images/home-nav.png');
@@ -105,6 +109,7 @@ class $AssetsImagesGen {
         edukasi,
         facebook,
         google,
+        headerImg,
         homeNav,
         onboard1,
         onboard2,

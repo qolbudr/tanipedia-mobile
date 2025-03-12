@@ -13,11 +13,25 @@ extension ExtensionString on String {
     final f = NumberFormat.decimalPattern('id_ID');
     return f.parse(isEmpty ? '0' : this);
   }
+
+  String? getYouTubeId() {
+    final RegExp regExp = RegExp(
+      r'(?:https?:\/\/)?(?:www\.)?(?:youtube|youtu|youtube-nocookie)\.(?:com\/(?:[^\/\n\s]+\/\S+\/|\S*?[?&]v=)|(?:[^\/\n\s]+\/\S+\/)?(?:\S*?[?&]v=))([a-zA-Z0-9_-]{11})',
+      caseSensitive: false,
+    );
+
+    final match = regExp.firstMatch(this);
+    if (match != null) {
+      return match.group(1); // This is the video ID
+    }
+
+    return null; // Return null if no match found
+  }
 }
 
 extension ExtensionNum on num {
   String toCurrency({bool withSymbol = true, bool withSign = false, bool minus = false, bool isCompact = false}) {
-    if(isCompact) return NumberFormat.compactCurrency(locale: 'id_ID', symbol: '').format(this);
+    if (isCompact) return NumberFormat.compactCurrency(locale: 'id_ID', symbol: '').format(this);
     var f = NumberFormat.decimalPattern('id_ID');
     String result = '';
 
