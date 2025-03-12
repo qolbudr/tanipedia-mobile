@@ -43,7 +43,7 @@ class VEdukasiMainMobile extends StatelessWidget {
                 SizedBox(height: Const.parentMargin()),
                 WButton(
                   type: WButtonType.whiteGhost,
-                  onTap: () {},
+                  onTap: () => EdukasiRoute.toArticle(),
                   fullWidth: true,
                   label: "Artikel Tumbuhan",
                 )
