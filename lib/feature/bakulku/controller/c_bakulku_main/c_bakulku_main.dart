@@ -20,9 +20,10 @@ class CBakulkuMain extends GetxController {
 
   void onGetData() async {
     try {
+      if(refreshController.isRefresh) _state.value = state.copyWith(offset: 0);
       final response = await rProduct.getProducts(limit: state.limit, offset: state.offset, search: searchText.text, category: state.category);
       if(refreshController.isLoading) _state.value = state.copyWith(data: [...state.data, ...(response.data ?? [])], offset: state.offset + (response.data?.length ?? 0));
-      if(refreshController.isRefresh) _state.value = state.copyWith(data: response.data ?? [], offset: 0);
+      if(refreshController.isRefresh) _state.value = state.copyWith(data: response.data ?? [], offset: response.data?.length ?? 0);
       if(refreshController.isLoading && response.data?.isEmpty == true) return refreshController.loadNoData();
       if(refreshController.isLoading) return refreshController.loadComplete();
       if(refreshController.isRefresh) return refreshController.refreshCompleted();

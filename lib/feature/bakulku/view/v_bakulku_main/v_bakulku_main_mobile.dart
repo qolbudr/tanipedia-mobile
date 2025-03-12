@@ -162,7 +162,7 @@ class VBakulkuMainMobile extends StatelessWidget {
                 child: GridView.count(
                   padding: EdgeInsets.all(Const.parentMargin()),
                   crossAxisCount: 2,
-                  childAspectRatio: 2 / 3,
+                  childAspectRatio: 2 / 3.2,
                   mainAxisSpacing: Const.parentMargin(),
                   crossAxisSpacing: Const.parentMargin(),
                   shrinkWrap: true,
@@ -170,51 +170,50 @@ class VBakulkuMainMobile extends StatelessWidget {
                     ...o.state.data.map(
                       (item) => Column(
                         children: [
-                          SizedBox(
-                            width: double.infinity,
-                            height: 190,
-                            child: ClipRRect(
-                              borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
-                              child: CachedNetworkImage(
-                                imageUrl: "${Const.urlHost}/product/${item.image}",
-                                fit: BoxFit.cover,
+                          Expanded(
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+                                child: CachedNetworkImage(
+                                  imageUrl: "${Const.urlHost}/product/${item.image}",
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
-                          Expanded(
-                            child: Container(
-                              padding: EdgeInsets.all(Const.parentMargin()),
-                              width: double.infinity,
-                              decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)),
-                                color: Colors.white,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(item.name ?? '-', style: TText.bodyMBold()),
-                                  Row(
-                                    children: [
-                                      const Icon(Icons.map_outlined, size: 14),
-                                      SizedBox(width: Const.siblingMargin()),
-                                      Expanded(
-                                        child: Text(
-                                          item.seller?.address ?? '-',
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TText.bodyXSRegular(),
-                                        ),
+                          Container(
+                            padding: EdgeInsets.all(Const.parentMargin()),
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)),
+                              color: Colors.white,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(item.name ?? '-', style: TText.bodyMBold()),
+                                Row(
+                                  children: [
+                                    const Icon(Icons.map_outlined, size: 14),
+                                    SizedBox(width: Const.siblingMargin()),
+                                    Expanded(
+                                      child: Text(
+                                        item.seller?.address ?? '-',
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TText.bodyXSRegular(),
                                       ),
-                                    ],
-                                  ),
-                                  Text(
-                                    item.description ?? '-',
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TText.bodyXSRegular(color: TColors.primaryColor),
-                                  ),
-                                ],
-                              ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  item.description ?? '-',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TText.bodyXSRegular(color: TColors.primaryColor),
+                                ),
+                              ],
                             ),
                           )
                         ],
