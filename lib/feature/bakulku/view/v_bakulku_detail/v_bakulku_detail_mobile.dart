@@ -42,7 +42,7 @@ class VBakulkuDetailMobile extends StatelessWidget {
                             child: CachedNetworkImage(imageUrl: "${Const.urlHost}/product/${o.state.data?.image}", fit: BoxFit.cover),
                           ),
                           SizedBox(height: Const.siblingMargin(x: 4)),
-                          Text("Cabai Ireng", style: TText.subHeadingBold()),
+                          Text(o.state.data?.name ?? '-', style: TText.subHeadingBold()),
                           SizedBox(height: Const.siblingMargin(x: 4)),
                           Row(
                             children: [

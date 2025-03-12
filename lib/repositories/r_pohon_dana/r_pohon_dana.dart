@@ -7,6 +7,7 @@ import 'package:tanipedia_mobile/repositories/r_pohon_dana/model/pohon_dana_mode
 
 abstract class RPohonDana {
   Future<MainResponse<List<PohonDanaModel>>> getPohonDanas({String? search, num? limit, num? offset});
+  Future<MainResponse<PohonDanaModel>> getPohonDana({num? id});
 }
 
 class RIPohonDana implements RPohonDana {
@@ -24,6 +25,26 @@ class RIPohonDana implements RPohonDana {
           'limit': limit,
         },
         fromJsonT: (json) => MainResponse.fromJson(json, (json['data'] as List).map((item) => PohonDanaModel.fromJson(item)).toList()),
+      );
+      return response;
+    } on ServerException catch (err) {
+      throw ServerFailure(message: err.message ?? '');
+    } on ClientException catch (err) {
+      throw ClientFailure(message: err.message ?? '');
+    } on ConnectionException catch (err) {
+      throw ConnectionFailure(message: err.message ?? '');
+    } catch (err) {
+      throw ServerFailure(message: err.toString());
+    }
+  }
+  
+  @override
+  Future<MainResponse<PohonDanaModel>> getPohonDana({num? id}) async {
+    try {
+      final response = await api.reqWithToken<MainResponse<PohonDanaModel>>(
+        method: NetworkMethod.get,
+        url: '/pohon-dana/$id',
+        fromJsonT: (json) => MainResponse.fromJson(json, PohonDanaModel.fromJson(json['data'])),
       );
       return response;
     } on ServerException catch (err) {

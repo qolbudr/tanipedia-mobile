@@ -6,6 +6,7 @@ import 'package:tanipedia_mobile/core/themes/text_theme.dart';
 import 'package:tanipedia_mobile/core/widget/w_input.dart';
 import 'package:tanipedia_mobile/core/widget/w_refresher.dart';
 import 'package:tanipedia_mobile/feature/pohon_dana/controller/c_pohon_dana_main/c_pohon_dana_main.dart';
+import 'package:tanipedia_mobile/feature/pohon_dana/pohon_dana_route.dart';
 
 class VPohonDanaMainMobile extends StatelessWidget {
   const VPohonDanaMainMobile({super.key});
@@ -45,14 +46,17 @@ class VPohonDanaMainMobile extends StatelessWidget {
                       shrinkWrap: true,
                       children: [
                         ...o.state.data.map(
-                          (item) => Container(
-                            clipBehavior: Clip.hardEdge,
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
-                            width: double.infinity,
-                            height: 300,
-                            child: CachedNetworkImage(
-                              imageUrl: "${Const.urlHost}/pohon-dana/${item.image}",
-                              fit: BoxFit.cover,
+                          (item) => InkWell(
+                            onTap: () =>  PohonDanaRoute.toDetail(id: item.id!),
+                            child: Container(
+                              clipBehavior: Clip.hardEdge,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
+                              width: double.infinity,
+                              height: 300,
+                              child: CachedNetworkImage(
+                                imageUrl: "${Const.urlHost}/pohon-dana/${item.image}",
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
