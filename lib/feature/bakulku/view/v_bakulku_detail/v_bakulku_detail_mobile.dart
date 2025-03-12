@@ -9,6 +9,7 @@ import 'package:tanipedia_mobile/core/utils/extension.dart';
 import 'package:tanipedia_mobile/core/widget/w_button.dart';
 import 'package:tanipedia_mobile/core/widget/w_refresher.dart';
 import 'package:tanipedia_mobile/feature/bakulku/controller/c_bakulku_detail/c_bakulku_detail.dart';
+import 'package:tanipedia_mobile/repositories/r_bakulku/r_bakulku.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class VBakulkuDetailMobile extends StatelessWidget {
@@ -87,6 +88,7 @@ class VBakulkuDetailMobile extends StatelessWidget {
               padding: EdgeInsets.all(Const.parentMargin()),
               child: WButton(
                 onTap: () async {
+                  await Get.find<RIProduct>().createTransaction(productId: o.state.data?.id, quantity: o.state.quantity);
                   await launchUrl(Uri.parse('https://wa.me/+62${o.state.data?.seller?.phone}&text=Halo saya ingin membeli ${o.state.data?.name} sebanyak ${o.state.quantity} ${o.state.data?.unit}'));
                 },
                 fullWidth: true,

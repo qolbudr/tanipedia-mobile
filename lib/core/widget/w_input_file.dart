@@ -30,6 +30,7 @@ class _WInputFileState extends State<WInputFile> {
         }
       },
       child: Container(
+        padding: EdgeInsets.symmetric(horizontal: Const.parentMargin()),
         color: TColors.primaryColor.withOpacity(0.1),
         width: double.infinity,
         height: 60,
@@ -39,11 +40,11 @@ class _WInputFileState extends State<WInputFile> {
             if (pickedFile == null) ...[
               const Icon(Icons.upload, color: TColors.primaryColor),
               SizedBox(width: Const.siblingMargin(x: 2)),
-              Text("Klik disini untuk mengunggah foto", style: TText.bodySRegular(color: TColors.primaryColor)),
+              Expanded(child: Text("Klik disini untuk mengunggah foto", style: TText.bodySRegular(color: TColors.primaryColor), maxLines: 1, overflow: TextOverflow.ellipsis)),
             ] else ...[
               const Icon(Icons.image, color: TColors.primaryColor),
               SizedBox(width: Const.siblingMargin(x: 2)),
-              Text(pickedFile!.name, style: TText.bodySRegular(color: TColors.primaryColor)),
+              Expanded(child: Text(pickedFile!.name, style: TText.bodySRegular(color: TColors.primaryColor), maxLines: 1, overflow: TextOverflow.ellipsis)),
             ],
           ],
         ),
