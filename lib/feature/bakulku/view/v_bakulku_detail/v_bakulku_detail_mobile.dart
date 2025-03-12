@@ -26,7 +26,7 @@ class VBakulkuDetailMobile extends StatelessWidget {
               child: WRefresher(
                 controller: o.refreshController,
                 onRefresh: () => o.onGetData(),
-                child: o.state.status.isLoading
+                child: !o.state.status.isSuccess
                     ? const LinearProgressIndicator()
                     : ListView(
                         padding: EdgeInsets.all(Const.parentMargin()),
