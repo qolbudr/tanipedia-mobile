@@ -1,4 +1,4 @@
-package com.example.tanipedia_mobile
+package site.tanipedia.id
 
 import io.flutter.embedding.android.FlutterActivity
 
