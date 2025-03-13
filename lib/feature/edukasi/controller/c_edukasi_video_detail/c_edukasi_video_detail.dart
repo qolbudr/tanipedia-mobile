@@ -36,7 +36,6 @@ class CEdukasiVideoDetail extends GetxController {
   }
 
   void onChooseVideo(num id) async {
-    print(id);
     _state.value = state.copyWith(activeIndex: id);
   }
 }
