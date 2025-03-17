@@ -115,56 +115,6 @@ class VRegisterMobile extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("- OR Continue with -", style: TText.bodySRegular()),
-                  ],
-                ),
-                SizedBox(height: Const.siblingMargin(x: 10)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        border: Border.all(
-                          color: TColors.neutral30,
-                        ),
-                      ),
-                      child: Image.asset('assets/images/google.png'),
-                    ),
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        border: Border.all(
-                          color: TColors.neutral30,
-                        ),
-                      ),
-                      child: Image.asset('assets/images/apple.png'),
-                    ),
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        border: Border.all(
-                          color: TColors.neutral30,
-                        ),
-                      ),
-                      child: Image.asset('assets/images/facebook.png'),
-                    )
-                  ].joinWidget(
-                    SizedBox(
-                      width: Const.siblingMargin(x: 4),
-                    ),
-                  ),
-                ),
-                SizedBox(height: Const.siblingMargin(x: 10)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
                     RichText(
                       text: TextSpan(text: "I Already Have an Account ", style: TText.bodySRegular(color: TColors.baseBlack), children: [
                         TextSpan(

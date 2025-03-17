@@ -17,81 +17,88 @@ class VMainMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     final o = Get.put(CMain());
 
-    return Scaffold(
-      backgroundColor: TColors.neutral10,
-      body: Stack(
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(
-                child: TabBarView(
-                  controller: o.tabController,
-                  children: [
-                    VHome(),
-                    VBakulkuMain(),
-                    VEdukasiMain(),
-                    VPohonDanaMain(),
-                    VProfileMain(),
-                  ],
+    return Obx(
+      () => Scaffold(
+        backgroundColor: TColors.neutral10,
+        body: Stack(
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: TabBarView(
+                    controller: o.tabController,
+                    children: [
+                      VHome(),
+                      VBakulkuMain(),
+                      VEdukasiMain(),
+                      VPohonDanaMain(),
+                      VProfileMain(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                height: 60,
+                decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50))),
+                child: Center(
+                  child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    InkWell(
+                      onTap: () => o.tabController.animateTo(0),
+                      child: Container(
+                        decoration: o.state.tabIndex == 0 ? const BoxDecoration(border: Border(top: BorderSide(color: TColors.primaryColor, width: 3))) : const BoxDecoration(border: Border(top: BorderSide(color: Colors.transparent, width: 3))),
+                        width: Const.parentMargin(x: 4),
+                        height: 60,
+                        child: Assets.images.homeNav.image(),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () => o.tabController.animateTo(1),
+                      child: Container(
+                        decoration: o.state.tabIndex == 1 ? const BoxDecoration(border: Border(top: BorderSide(color: TColors.primaryColor, width: 3))) : const BoxDecoration(border: Border(top: BorderSide(color: Colors.transparent, width: 3))),
+                        width: Const.parentMargin(x: 4),
+                        height: 60,
+                        child: Assets.images.tokoNav.image(),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () => o.tabController.animateTo(2),
+                      child: Container(
+                        decoration: o.state.tabIndex == 2 ? const BoxDecoration(border: Border(top: BorderSide(color: TColors.primaryColor, width: 3))) : const BoxDecoration(border: Border(top: BorderSide(color: Colors.transparent, width: 3))),
+                        width: Const.parentMargin(x: 4),
+                        height: 60,
+                        child: Assets.images.edukasiNav.image(),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () => o.tabController.animateTo(3),
+                      child: Container(
+                        decoration: o.state.tabIndex == 3 ? const BoxDecoration(border: Border(top: BorderSide(color: TColors.primaryColor, width: 3))) : const BoxDecoration(border: Border(top: BorderSide(color: Colors.transparent, width: 3))),
+                        width: Const.parentMargin(x: 4),
+                        height: 60,
+                        child: Assets.images.pohondanaNav.image(),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () => o.tabController.animateTo(4),
+                      child: Container(
+                        decoration: o.state.tabIndex == 4 ? const BoxDecoration(border: Border(top: BorderSide(color: TColors.primaryColor, width: 3))) : const BoxDecoration(border: Border(top: BorderSide(color: Colors.transparent, width: 3))),
+                        width: Const.parentMargin(x: 4),
+                        height: 60,
+                        child: Assets.images.provileNav.image(),
+                      ),
+                    ),
+                  ]),
                 ),
               ),
-            ],
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              height: 60,
-              decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50))),
-              child: Center(
-                child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  InkWell(
-                    onTap: () => o.tabController.animateTo(0),
-                    child: SizedBox(
-                      width: Const.parentMargin(x: 4),
-                      height: 60,
-                      child: Assets.images.homeNav.image(),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () => o.tabController.animateTo(1),
-                    child: SizedBox(
-                      width: Const.parentMargin(x: 4),
-                      height: 60,
-                      child: Assets.images.tokoNav.image(),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () => o.tabController.animateTo(2),
-                    child: SizedBox(
-                      width: Const.parentMargin(x: 4),
-                      height: 60,
-                      child: Assets.images.edukasiNav.image(),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () => o.tabController.animateTo(3),
-                    child: SizedBox(
-                      width: Const.parentMargin(x: 4),
-                      height: 60,
-                      child: Assets.images.pohondanaNav.image(),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () => o.tabController.animateTo(4),
-                    child: SizedBox(
-                      width: Const.parentMargin(x: 4),
-                      height: 60,
-                      child: Assets.images.provileNav.image(),
-                    ),
-                  ),
-                ]),
-              ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

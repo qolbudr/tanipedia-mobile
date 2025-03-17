@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tanipedia_mobile/core/constant/const.dart';
 import 'package:tanipedia_mobile/core/themes/color_theme.dart';
 import 'package:tanipedia_mobile/core/themes/text_theme.dart';
 import 'package:tanipedia_mobile/core/utils/extension.dart';
 import 'package:tanipedia_mobile/core/widget/w_button.dart';
+import 'package:tanipedia_mobile/feature/edukasi/edukasi_route.dart';
+import 'package:tanipedia_mobile/feature/main/controller/c_main/c_main.dart';
 import 'package:tanipedia_mobile/gen/assets.gen.dart';
 
 class VHomeMobile extends StatelessWidget {
@@ -11,6 +14,7 @@ class VHomeMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final oMain = Get.put(CMain());
     return Scaffold(
       body: ListView(
         padding: EdgeInsets.zero,
@@ -59,7 +63,7 @@ class VHomeMobile extends StatelessWidget {
                                   size: WButtonSize.xs,
                                   type: WButtonType.textPrimary,
                                   label: "Pelajari Selengkapnya",
-                                  onTap: () {},
+                                  onTap: () => EdukasiRoute.toArticle(),
                                 ),
                               ],
                             )
@@ -95,9 +99,10 @@ class VHomeMobile extends StatelessWidget {
                               children: [
                                 Text("Bakulku", style: TText.bodyBold(color: TColors.primaryColor)),
                                 Text("Langsung dari petani lokal dengan kualitas terbaik", style: TText.bodyXSRegular()),
-                                const Row(
+                                Row(
                                   children: [
                                     WButton(
+                                      onTap: () => oMain.tabController.animateTo(1),
                                       size: WButtonSize.xs,
                                       label: "Jelajahi Sekarang",
                                     ),
@@ -127,9 +132,10 @@ class VHomeMobile extends StatelessWidget {
                               children: [
                                 Text("Edukasi", style: TText.bodyBold(color: TColors.primaryColor)),
                                 Text("Menyediakan panduan praktis untuk hasil pertanian secara optimal", style: TText.bodyXSRegular()),
-                                const Row(
+                                Row(
                                   children: [
                                     WButton(
+                                      onTap: () => oMain.tabController.animateTo(2),
                                       size: WButtonSize.xs,
                                       label: "Jelajahi Sekarang",
                                     ),
@@ -159,9 +165,10 @@ class VHomeMobile extends StatelessWidget {
                               children: [
                                 Text("Pohon Dana", style: TText.bodyBold(color: TColors.primaryColor)),
                                 Text("Menyediakan informasi pendanaan untuk pertumbuhan agrikultur", style: TText.bodyXSRegular()),
-                                const Row(
+                                Row(
                                   children: [
                                     WButton(
+                                      onTap: () => oMain.tabController.animateTo(3),
                                       size: WButtonSize.xs,
                                       label: "Jelajahi Sekarang",
                                     ),

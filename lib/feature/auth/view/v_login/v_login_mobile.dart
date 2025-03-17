@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:tanipedia_mobile/core/constant/const.dart';
 import 'package:tanipedia_mobile/core/themes/color_theme.dart';
 import 'package:tanipedia_mobile/core/themes/text_theme.dart';
-import 'package:tanipedia_mobile/core/utils/extension.dart';
 import 'package:tanipedia_mobile/core/utils/validation.dart';
 import 'package:tanipedia_mobile/core/widget/w_button.dart';
 import 'package:tanipedia_mobile/core/widget/w_input.dart';
@@ -66,56 +65,6 @@ class VLoginMobile extends StatelessWidget {
                     fullWidth: true,
                     label: "Login",
                     onTap: () => o.login(),
-                  ),
-                  SizedBox(height: Const.siblingMargin(x: 10)),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("- OR Continue with -", style: TText.bodySRegular()),
-                    ],
-                  ),
-                  SizedBox(height: Const.siblingMargin(x: 10)),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          border: Border.all(
-                            color: TColors.neutral30,
-                          ),
-                        ),
-                        child: Image.asset('assets/images/google.png'),
-                      ),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          border: Border.all(
-                            color: TColors.neutral30,
-                          ),
-                        ),
-                        child: Image.asset('assets/images/apple.png'),
-                      ),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          border: Border.all(
-                            color: TColors.neutral30,
-                          ),
-                        ),
-                        child: Image.asset('assets/images/facebook.png'),
-                      )
-                    ].joinWidget(
-                      SizedBox(
-                        width: Const.siblingMargin(x: 4),
-                      ),
-                    ),
                   ),
                   SizedBox(height: Const.siblingMargin(x: 10)),
                   Row(
