@@ -46,7 +46,7 @@ class VHomeMobile extends StatelessWidget {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
-                          color: TColors.baseWhite.withOpacity(0.2),
+                          color: TColors.baseWhite.withValues(alpha:0.2),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,

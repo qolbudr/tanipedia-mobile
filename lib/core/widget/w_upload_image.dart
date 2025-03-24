@@ -52,7 +52,7 @@ class WUploadImage extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Const.siblingMargin(x: 2)),
-                  color: TColors.baseBlack.withOpacity(0.5),
+                  color: TColors.baseBlack.withValues(alpha:0.5),
                 ),
                 width: width ?? 80,
                 height: height ?? 80,

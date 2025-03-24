@@ -31,7 +31,7 @@ class VEdukasiVideoDetailMobile extends StatelessWidget {
                     height: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Colors.black.withOpacity(0.5),
+                      color: Colors.black.withValues(alpha:0.5),
                     ),
                     child: const Center(
                       child: Icon(Icons.play_arrow, size: 50, color: TColors.baseWhite),

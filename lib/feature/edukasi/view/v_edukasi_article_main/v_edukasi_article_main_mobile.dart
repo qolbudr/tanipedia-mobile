@@ -27,7 +27,7 @@ class VEdukasiArticleMainMobile extends StatelessWidget {
                 image: DecorationImage(
                   image: const AssetImage('assets/images/header-img.png'),
                   fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(Colors.yellow.withOpacity(0.3), BlendMode.lighten),
+                  colorFilter: ColorFilter.mode(Colors.yellow.withValues(alpha:0.3), BlendMode.lighten),
                 ),
                 borderRadius: const BorderRadius.only(bottomRight: Radius.circular(50)),
               ),

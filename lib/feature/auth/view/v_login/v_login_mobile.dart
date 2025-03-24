@@ -49,16 +49,16 @@ class VLoginMobile extends StatelessWidget {
                     validator: (value) => Validation.required(label: "Password", value: value),
                   ),
                   SizedBox(height: Const.siblingMargin(x: 4)),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      WButton(
-                        onTap: () {},
-                        type: WButtonType.textPrimary,
-                        label: "Forgot Password",
-                      )
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.end,
+                  //   children: [
+                  //     WButton(
+                  //       onTap: () {},
+                  //       type: WButtonType.textPrimary,
+                  //       label: "Forgot Password",
+                  //     )
+                  //   ],
+                  // ),
                   SizedBox(height: Const.siblingMargin(x: 8)),
                   WButton(
                     isLoading: o.state.status.isLoading,

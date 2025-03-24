@@ -38,7 +38,7 @@ class ThemeMain {
           borderRadius: BorderRadius.circular(100),
         ),
       ),
-      textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.black.withOpacity(0.7), displayColor: TColors.neutral50),
+      textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.black.withValues(alpha:0.7), displayColor: TColors.neutral50),
     );
     return defaultTheme;
   }

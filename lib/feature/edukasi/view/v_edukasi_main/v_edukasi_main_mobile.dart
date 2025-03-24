@@ -24,7 +24,7 @@ class VEdukasiMainMobile extends StatelessWidget {
             padding: EdgeInsets.all(Const.parentMargin()),
             width: double.infinity,
             height: Get.height,
-            color: TColors.baseBlack.withOpacity(0.5),
+            color: TColors.baseBlack.withValues(alpha:0.5),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
