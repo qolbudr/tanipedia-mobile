@@ -152,6 +152,25 @@ class VBakulkuMainMobile extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () => o.onChangeCategory(ProductCategory.biji),
+                      child: Container(
+                        decoration: (o.state.category == ProductCategory.biji) ? const BoxDecoration(
+                          border: Border(bottom: BorderSide(color: TColors.primaryColor, width: 2)),
+                        ) : null,
+                        height: 80,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Assets.images.bijiCategory.image(width: 24, height: 24),
+                            SizedBox(height: Const.siblingMargin()),
+                            Text("Biji", style: TText.bodyXSRegular(color: TColors.primaryColor)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

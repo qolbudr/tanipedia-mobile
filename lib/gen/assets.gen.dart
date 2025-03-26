@@ -22,6 +22,10 @@ class $AssetsImagesGen {
   AssetGenImage get bibitCategory =>
       const AssetGenImage('assets/images/bibit-category.png');
 
+  /// File path: assets/images/biji-category.png
+  AssetGenImage get bijiCategory =>
+      const AssetGenImage('assets/images/biji-category.png');
+
   /// File path: assets/images/buah-category.png
   AssetGenImage get buahCategory =>
       const AssetGenImage('assets/images/buah-category.png');
@@ -104,6 +108,7 @@ class $AssetsImagesGen {
         apple,
         bakulku,
         bibitCategory,
+        bijiCategory,
         buahCategory,
         edukasiNav,
         edukasi,
@@ -130,7 +135,11 @@ class $AssetsImagesGen {
 class Assets {
   const Assets._();
 
+  static const AssetGenImage icon = AssetGenImage('assets/icon.png');
   static const $AssetsImagesGen images = $AssetsImagesGen();
+
+  /// List of all assets
+  static List<AssetGenImage> get values => [icon];
 }
 
 class AssetGenImage {

@@ -3,4 +3,5 @@ enum ProductCategory {
   sayur,
   bibit,
   pupuk,
+  biji,
 }

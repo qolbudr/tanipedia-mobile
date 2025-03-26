@@ -45,4 +45,5 @@ const _$ProductCategoryEnumMap = {
   ProductCategory.sayur: 'sayur',
   ProductCategory.bibit: 'bibit',
   ProductCategory.pupuk: 'pupuk',
+  ProductCategory.biji: 'biji',
 };
